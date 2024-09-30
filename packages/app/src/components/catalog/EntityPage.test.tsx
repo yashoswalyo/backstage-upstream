@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import { EntityLayout, catalogPlugin } from '@backstage/plugin-catalog';
 import {
   EntityProvider,
   starredEntitiesApiRef,
   MockStarredEntitiesApi,
+  catalogApiRef,
+  CatalogApi,
 } from '@backstage/plugin-catalog-react';
 import { permissionApiRef } from '@backstage/plugin-permission-react';
 import {
@@ -56,6 +57,7 @@ describe('EntityPage Test', () => {
           apis={[
             [starredEntitiesApiRef, new MockStarredEntitiesApi()],
             [permissionApiRef, mockPermissionApi],
+            [catalogApiRef, {} as CatalogApi],
           ]}
         >
           <EntityProvider entity={entity}>
